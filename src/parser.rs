@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 use std::path::Path;
 
 pub const WORKSHEET_NAME: &str = "Lista Operazione";
+pub const USELESS_ROWS: u32 = 18;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct BancaIntesaRecord {
@@ -31,7 +32,7 @@ pub struct BancaIntesaRecord {
 pub fn parse_bank_export<S: AsRef<Path>>(path: S) -> Result<Vec<BancaIntesaRecord>, Error> {
     let mut workbook: Xlsx<_> = open_workbook(path.as_ref())?;
     let range = workbook.worksheet_range(WORKSHEET_NAME)?;
-    let clean_range = range.range((18, 0), range.end().unwrap());
+    let clean_range = range.range((USELESS_ROWS, 0), range.end().unwrap());
 
     let iter = RangeDeserializerBuilder::new()
         .has_headers(true)
