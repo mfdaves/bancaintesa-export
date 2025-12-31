@@ -1,4 +1,4 @@
-Rust library for parsing the useless export xlsx that banca intesa provides to its customers.
+Rust mini-util lib for parsing the useless export xlsx that banca intesa provides to its customers.
 
 ## Features 
 It just returns a `Vec<BancaIntesaRecord>` which provides for each row: date, operation, details, category, currency and amount. 
