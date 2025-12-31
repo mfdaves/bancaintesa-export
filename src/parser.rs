@@ -19,7 +19,8 @@ pub struct BancaIntesaRecord {
     #[serde(rename = "Dettagli")]
     pub details: String,
 
-    #[serde(rename = "Categoria")]
+    // see it's right to keep it as "Categoria "
+    #[serde(rename = "Categoria ")]
     pub category: String,
 
     #[serde(rename = "Valuta")]
