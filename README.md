@@ -1,7 +1,7 @@
 Rust library for parsing the useless export xlsx that banca intesa provides to its customers.
 
 ## Features 
-It just returns a Vec<BancaIntesaRecord> which provides for each row: date, operation, details, category, currency and amount. 
+It just returns a `Vec<BancaIntesaRecord>` which provides for each row: date, operation, details, category, currency and amount. 
 I use hardcoded values like sheet name "Lista Operazione" and skip the first 18 human excel rows, because they added a very useful header..
 I could add a config.toml maybe
 I don't know if in the future they'll change column names or header height.
