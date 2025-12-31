@@ -11,22 +11,22 @@ pub const USELESS_ROWS: u32 = 18;
 #[derive(Debug, Deserialize, Serialize)]
 pub struct BancaIntesaRecord {
     #[serde(rename = "Data", deserialize_with = "exceldt_to_date")]
-    date: NaiveDate,
+    pub date: NaiveDate,
 
     #[serde(rename = "Operazione")]
-    operation: String,
+    pub operation: String,
 
     #[serde(rename = "Dettagli")]
-    details: String,
+    pub details: String,
 
     #[serde(rename = "Categoria")]
-    category: String,
+    pub category: String,
 
     #[serde(rename = "Valuta")]
-    currency: String,
+    pub currency: String,
 
     #[serde(rename = "Importo")]
-    amount: f64,
+    pub amount: f64,
 }
 
 pub fn parse_bank_export<S: AsRef<Path>>(path: S) -> Result<Vec<BancaIntesaRecord>, Error> {
